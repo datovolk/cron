@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 import os
 
-def get_driver(user_agent=None, headless=False):
+def get_driver(user_agent=None, headless=True):
     if user_agent is None:
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
@@ -13,7 +13,7 @@ def get_driver(user_agent=None, headless=False):
     options.add_argument(f"user-agent={user_agent}")
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    driver_path = os.path.join(base_dir, "..", "chromedriver")
+    driver_path = os.path.join(base_dir,  "chromedriver")
     driver_path = os.path.abspath(driver_path)
 
     service = Service(driver_path)

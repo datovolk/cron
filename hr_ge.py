@@ -56,7 +56,7 @@ def main():
     """)
 
     jobs_sent = 0
-    max_jobs = 1000000
+    max_jobs = 30
 
     try:
         driver.get('https://www.hr.ge/search-posting')

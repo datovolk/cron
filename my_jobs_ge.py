@@ -9,7 +9,7 @@ from turso_python.crud import TursoCRUD
 load_dotenv()
 
 
-def scrape_jobs(max_jobs=1000000) -> list[dict]:
+def scrape_jobs(max_jobs=30) -> list[dict]:
     driver = get_driver()
     driver.get("https://myjobs.ge/ka/vacancy?page=1")
     time.sleep(3)
@@ -107,6 +107,6 @@ def send_to_turso(jobs: list[dict]):
 
 
 if __name__ == "__main__":
-    jobs = scrape_jobs(max_jobs=1000000)
+    jobs = scrape_jobs(max_jobs=30)
     print(f"Collected {len(jobs)} jobs locally.")
     send_to_turso(jobs)
